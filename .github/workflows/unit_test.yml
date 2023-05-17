@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - "main"
-    pull_request:
-      branches:
-      - "main"
+  pull_request:
+    branches:
+    - "main"
 
 jobs:
   test:
@@ -20,6 +20,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
       - name: Display python version
